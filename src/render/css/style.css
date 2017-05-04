@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Glegoo|Lato');
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-size: 16px;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+.navbar-brand {
+	font-family: 'Anonymous Pro', monospace !important;
+	font-size: 40px;
+	color: #ffffff;
+}
+.navbar-brand:hover {
+	color: #ffffff;
+}
+#navbar a {
+	color: #ffffff;
+	text-decoration: none;
+}
+#navbar a:hover {
+	color: #008296;
+}
+
+.banner {
+	width: 100%;
+	padding: 100px 40px;
+}
+.banner > .title {
+	color: #ffffff;
+	font-family: 'Anonymous Pro', monospace;
+	font-size: 70px;
+	text-align: center;
+}
+.banner > .subtitle {
+	text-align: center;
+}
+.bannerLink:hover {
+	text-decoration: none;
+}
+.header {
+	/*background-color: #a6e7ce;*/
+	background-color: #ffa723;
+	padding: 100px 40px 130px 40px;
+	font-size: 40px;
+	color: #ffffff;
+}
+.alexa-banner {
+	background-color: #0070BA;
+}
+.android-banner {
+	background-color: #ade422;
+}
+
+.description {
+	padding: 100px 40px;
+}
