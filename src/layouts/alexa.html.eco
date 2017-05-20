@@ -37,44 +37,40 @@
             <!-- The old boring way -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="dropdown">
+                <li class="<%= if @document.tab is 'setup' then 'selected' %>">
+                  <a href="/setup.html">Setup</a>
+                </li>
+                <li class="dropdown <%= if @document.tab is 'sup' then 'selected' %>">
                   <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Alexa Skill
+                    Sup
                     <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="dLabel">
                     <li>
-                      <a href="/alexa">Get started</a>
+                      <a href="/sup/step1.html">Step 1: Hello World</a>
                     </li>
                     <li>
-                      <a href="https://android101-sup.github.io/">Android App</a>
+                      <a href="/sup/step2.html">Step 2: Widgets and Resources</a>
+                    </li>
+                    <li>
+                      <a href="/sup/step3.html">Step 3: Activity to Fragment</a>
+                    </li>
+                    <li>
+                      <a href="/sup/step4.html">Step 4: Implementation</a>
+                    </li>
+                    <li>
+                      <a href="/sup/step4-5.html">Step 4.5: SDK 23+ Permissions</a>
+                    </li>
+                    <li>
+                      <a href="/sup/step5.html">Step 5: Database Integration</a>
                     </li>
                   </ul>
                 </li>
-                <li class="dropdown">
-                  <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Android App
-                    <span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="dLabel">
-                    <li>
-                      <a href="https://android101-sup.github.io/">Sup</a>
-                    </li>
-                    <li>
-                      <a href="https://android101-sup.github.io/sup/step1.html">Get started</a>
-                    </li>
-                    <li>
-                      <a href="https://android101-sup.github.io/concepts.html">Concepts</a>
-                    </li>
-                    <li>
-                      <a href="https://android101-sup.github.io/resources.html">Resources</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
                 <li class="<%= if @document.tab is 'concepts' then 'selected' %>">
-                  <a href="/contact.html">Contact</a>
+                  <a href="/concepts.html">Concepts</a>
+                </li>
+                <li class="<%= if @document.tab is 'resources' then 'selected' %>">
+                  <a href="/resources.html">Resources</a>
                 </li>
               </ul>
             </div>
