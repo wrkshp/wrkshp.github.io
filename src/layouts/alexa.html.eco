@@ -21,26 +21,13 @@
                 <a class="navbar-brand" href="/">WRKSHP</a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-
-            <!-- Autogenerate pages -->
-            <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                <% for page in @getCollection("pages").toJSON(): %>
-                    <li class="<%= if page.id is @document.id then 'selected' %>">
-                        <a href="<%= page.url %>"><%= page.title %></a>
-                    </li>
-                <% end %>
-                </ul>
-            </div> -->
-
-            <!-- The old boring way -->
+            <!-- Nav links -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li class="<%= if @document.tab is 'setup' then 'selected' %>">
-                  <a href="/setup.html">Setup</a>
+                  <a href="/alexa#setup">Alexa</a>
                 </li>
-                <li class="dropdown <%= if @document.tab is 'sup' then 'selected' %>">
+                <!-- <li class="dropdown <%= if @document.tab is 'sup' then 'selected' %>">
                   <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     Sup
                     <span class="caret"></span>
@@ -65,12 +52,12 @@
                       <a href="/sup/step5.html">Step 5: Database Integration</a>
                     </li>
                   </ul>
-                </li>
+                </li> -->
                 <li class="<%= if @document.tab is 'concepts' then 'selected' %>">
-                  <a href="/concepts.html">Concepts</a>
+                  <a href="/alexa/concepts.html">Concepts</a>
                 </li>
                 <li class="<%= if @document.tab is 'resources' then 'selected' %>">
-                  <a href="/resources.html">Resources</a>
+                  <a href="/alexa/resources.html">Resources</a>
                 </li>
               </ul>
             </div>
