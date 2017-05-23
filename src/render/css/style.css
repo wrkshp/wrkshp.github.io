@@ -109,6 +109,15 @@ h1 {
 	margin-bottom: 5px;
 }
 
+h2 {
+	text-transform: lowercase;
+	letter-spacing: 3px;
+	color: #36c2b4;
+}
+b {
+	color: #0070BA;
+}
+
 pre#code {
 	height: 500px !important;
 	overflow: scroll;
