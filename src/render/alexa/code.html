@@ -21,9 +21,7 @@ as testing instructions are located at http://amzn.to/1LzFrj6
 import urllib.request
 
 POKEDEX_LOC = 'https://s3-us-west-2.amazonaws.com/uci-workshop-pokemon/pokemonList'
-
-SLOT_INDEX_NAME = 'PokemonName'
-SLOT_INDEX_ID = 'PokedexNumber'
+POKEMON_SLOT_NAME = 'PokedexNumber'
 
 # --------------- Helpers that build all of the responses ----------------------
 
@@ -60,18 +58,16 @@ def build_response(session_attributes, speechlet_response):
 
 def get_welcome_response():
     """ If we wanted to initialize the session to have some attributes we could
-    add those here
-    """
-
+   add those here
+   """
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Welcome to the Pokemon Info skill. " \
-                    "Try asking for a pokemon's name by, " \
-                    "What pokemon is number 25?"
+    speech_output = "Welcome to the Pokemon Info skill."
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
-    reprompt_text = "Please try asking for a pokemon's name by, " \
-                    "What pokemon is number 25?"
+
+    #TODO: Give a welcome response.
+    reprompt_text = "Please try asking for a pokemon's name by, "
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
@@ -91,15 +87,7 @@ def get_pokemon_name(intent, session):
 
     reprompt_text = None
 
-    if SLOT_INDEX_ID in intent['slots']:
-        input_id = intent['slots'][SLOT_INDEX_ID]['value']
-        result_name = get_pokemon(intent['slots'][SLOT_INDEX_ID]['value'])
-        speech_output = "Pokedex entry " + input_id + " is named " + result_name + "."
-        should_end_session = True
-    else:
-        speech_output = "I'm not sure what you mean by that. " \
-                        "Please try again."
-        should_end_session = False
+    #TODO: Get the pokemon's name
 
     return build_response(session_attributes, build_speechlet_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
@@ -108,22 +96,14 @@ def get_pokemon_name(intent, session):
 
 # --------------- Events ------------------
 
-def on_session_started(session_started_request, session):
-    """ Called when the session starts """
-
-    print("on_session_started requestId=" + session_started_request['requestId']
-          + ", sessionId=" + session['sessionId'])
-
 
 def on_launch(launch_request, session):
     """ Called when the user launches the skill without specifying what they
-    want
-    """
+   want
+   """
     print("on_launch requestId=" + launch_request['requestId'] +
           ", sessionId=" + session['sessionId'])
     # Dispatch to your skill's launch
-    parse_pokemon()
-
     return get_welcome_response()
 
 
@@ -136,8 +116,8 @@ def on_intent(intent_request, session):
     intent = intent_request['intent']
     intent_name = intent_request['intent']['name']
 
-    # Dispatch to your skill's intent handlers
-    if intent_name == "GetPokemon":
+    # TODO: Dispatch to your skill's intent handlers
+    if intent_name == "":
         return get_pokemon_name(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
@@ -147,44 +127,28 @@ def on_intent(intent_request, session):
         raise ValueError("Invalid intent")
 
 
-def on_session_ended(session_ended_request, session):
-    """ Called when the user ends the session.
-
-    Is not called when the skill returns should_end_session=true
-    """
-    print("on_session_ended requestId=" + session_ended_request['requestId'] +
-          ", sessionId=" + session['sessionId'])
-    # add cleanup logic here
-
-
 # --------------- Main handler ------------------
 
 def lambda_handler(event, context):
     """ Route the incoming request based on type (LaunchRequest, IntentRequest,
-    etc.) The JSON body of the request is provided in the event parameter.
-    """
+   etc.) The JSON body of the request is provided in the event parameter.
+   """
     print("event.session.application.applicationId=" +
           event['session']['application']['applicationId'])
 
     """
-    Uncomment this if statement and populate with your skill's application ID to
-    prevent someone else from configuring a skill that sends requests to this
-    function.
-    """
+   Uncomment this if statement and populate with your skill's application ID to
+   prevent someone else from configuring a skill that sends requests to this
+   function.
+   """
     # if (event['session']['application']['applicationId'] !=
     #         "amzn1.echo-sdk-ams.app.[unique-value-here]"):
     #     raise ValueError("Invalid Application ID")
-
-    if event['session']['new']:
-        on_session_started({'requestId': event['request']['requestId']},
-                           event['session'])
 
     if event['request']['type'] == "LaunchRequest":
         return on_launch(event['request'], event['session'])
     elif event['request']['type'] == "IntentRequest":
         return on_intent(event['request'], event['session'])
-    elif event['request']['type'] == "SessionEndedRequest":
-        return on_session_ended(event['request'], event['session'])
 
 
 # --------------- Read Pokemon Data ----------------------
@@ -194,7 +158,7 @@ POKEMON_PARSED = False
 
 def parse_pokemon():
     """ Parse pokemon information from the S3 store
-    """
+   """
     with urllib.request.urlopen(POKEDEX_LOC) as pokedex:
         for pokemon in pokedex.readlines():
             index, name = pokemon.decode('utf-8')[:-1].split(',')
@@ -204,15 +168,11 @@ def parse_pokemon():
 
 def get_pokemon(index):
     """ Given a pokemon index, return the pokemon name.
-    """
+   """
     if not POKEMON_PARSED:
         parse_pokemon()
 
     return POKEMON_DICT[str(index)]
-
-if __name__ == '__main__':
-    result = get_pokemon(25)
-    print("25 is " + result)
 </pre>
 
 <button class="btn btn-secondary right select-all-btn" type="button" onclick="selectText()">Select All</button>
