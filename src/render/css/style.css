@@ -118,6 +118,9 @@ b {
 	color: #0070BA;
 }
 
+pre {
+	font-family: 'Anonymous Pro', monospace !important;
+}
 pre#code {
 	height: 500px !important;
 	overflow: scroll;
