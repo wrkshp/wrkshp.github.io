@@ -53,6 +53,9 @@
                     </li>
                   </ul>
                 </li> -->
+                <li class="<%= if @document.tab is 'code' then 'selected' %>">
+                  <a href="/alexa/code.html">Sample Code</a>
+                </li>
                 <li class="<%= if @document.tab is 'concepts' then 'selected' %>">
                   <a href="/alexa/concepts.html">Concepts</a>
                 </li>

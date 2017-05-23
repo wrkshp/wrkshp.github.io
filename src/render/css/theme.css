@@ -412,6 +412,7 @@ fieldset[disabled] .btn-primary.active {
   color: #008296;
   background-color: white;
 }
+
 .btn {
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   border: none;
@@ -425,12 +426,12 @@ fieldset[disabled] .btn-primary.active {
 ::-moz-selection {
   color: white;
   text-shadow: none;
-  background: #222222;
+  background: #0070BA;
 }
 ::selection {
   color: white;
   text-shadow: none;
-  background: #222222;
+  background: #0070BA;
 }
 img::selection {
   color: white;
@@ -441,5 +442,5 @@ img::-moz-selection {
   background: transparent;
 }
 body {
-  webkit-tap-highlight-color: #222222;
+  webkit-tap-highlight-color: #0070BA;
 }

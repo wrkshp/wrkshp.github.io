@@ -99,6 +99,7 @@ h1 {
 	font-weight: 700;
 	font-size: 48px;
 	letter-spacing: 5px;
+	color: #0070ba;
 }
 .emphasis {
 	font-size: 17px;
@@ -106,4 +107,65 @@ h1 {
 }
 .setup-list > li {
 	margin-bottom: 5px;
+}
+
+pre#code {
+	height: 500px !important;
+	overflow: scroll;
+}
+.right {
+	float: right;
+}
+.select-all-btn {
+	padding: 8px 20px;
+}
+
+.btn-secondary {
+  color: white;
+  background-color: #0070ba;
+  border: 1px solid #0070ba;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary.focus,
+.btn-secondary:active,
+.btn-secondary.active,
+.open > .dropdown-toggle.btn-secondary {
+  color: #0070ba;
+  background-color: white;
+  border-color: #0070ba;
+  border: 1px solid #0070ba;
+}
+.btn-secondary:active,
+.btn-secondary.active,
+.open > .dropdown-toggle.btn-secondary {
+  background-image: none;
+}
+.btn-secondary.disabled,
+.btn-secondary[disabled],
+fieldset[disabled] .btn-secondary,
+.btn-secondary.disabled:hover,
+.btn-secondary[disabled]:hover,
+fieldset[disabled] .btn-secondary:hover,
+.btn-secondary.disabled:focus,
+.btn-secondary[disabled]:focus,
+fieldset[disabled] .btn-secondary:focus,
+.btn-secondary.disabled.focus,
+.btn-secondary[disabled].focus,
+fieldset[disabled] .btn-secondary.focus,
+.btn-secondary.disabled:active,
+.btn-secondary[disabled]:active,
+fieldset[disabled] .btn-secondary:active,
+.btn-secondary.disabled.active,
+.btn-secondary[disabled].active,
+fieldset[disabled] .btn-secondary.active {
+  background-color: #008296;
+  border-color: #008296;
+}
+.btn-secondary .badge {
+  color: #008296;
+  background-color: white;
 }
