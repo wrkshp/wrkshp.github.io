@@ -184,7 +184,7 @@ def get_pokemon(index):
 POKEDEX_LOC = 'https://s3-us-west-2.amazonaws.com/uci-workshop-pokemon/pokemonList'
 POKEMON_SLOT_NAME = 'PokedexNumber'</pre>
 
-	<p><span class="code">POKEDEX_LOC</span> is an S3 file that we have prepared. It lists the first 151 pokemon that you can refer to.</p>
+	<p><span class="code">POKEDEX_LOC</span> is an S3 file that we have prepared. It lists the first 151 Pokemon that you can refer to.</p>
 	
 	<p><span class="code">POKEMON_SLOT_NAME</span> is what we've defined as our slot name while we were configuring our interaction model. Make sure that what we have in our interaction model matches what we have in this code.</p>
 
@@ -192,7 +192,7 @@ POKEMON_SLOT_NAME = 'PokedexNumber'</pre>
 
 	<p>First, we'll focus on the <span class="code">on_intent</span> function. This is the function that will be called when the request that comes into the lambda function is made. From this request, we're going to grab the <span class="code">intent_name</span>, which we defined in the interaction model. In our case, we'll use <span class="code">GetPokemonIntent</span>. This is to help Alexa figure out what action to invoke based on the user's intent. We'll insert our intent name into the if statement.</p>
 
-	<p>Your <span class="code">on_intent</span> function should now look like the followingwhich should now look like the following.</p>
+	<p>Your <span class="code">on_intent</span> function should now look like the following which should now look like the following.</p>
 
 	<pre>
 def on_intent(intent_request, session):
