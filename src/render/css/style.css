@@ -94,6 +94,17 @@ body {
 	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16), 0 0 0 0 rgba(0, 0, 0, 0.08);
 }
 
+.blockquote {
+	background-color: #ffffff;
+	margin: 10px 20px 15px 20px;
+	padding: 15px;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16), 0 0 0 0 rgba(0, 0, 0, 0.08);
+}
+.blockquote > p {
+	margin: 0;
+	font-size: 20px;
+}
+
 h1 {
 	text-transform: lowercase;
 	font-weight: 700;
@@ -115,21 +126,31 @@ h2 {
 	color: #36c2b4;
 }
 b {
-	color: #0070BA;
+	color: #36c2b4;
 }
 
 pre {
 	font-family: 'Anonymous Pro', monospace !important;
+	background-color: white;
 }
 pre#code {
 	height: 500px !important;
 	overflow: scroll;
 }
+.code {
+	background-color: white;
+	font-family: 'Anonymous Pro', monospace !important;
+	padding: 2px;
+	letter-spacing: 0.75px;
+}
+
+.left {
+	float: left;
+	display: inline-block;
+}
 .right {
 	float: right;
-}
-.select-all-btn {
-	padding: 8px 20px;
+	display: inline-block;
 }
 
 .btn-secondary {
@@ -139,6 +160,7 @@ pre#code {
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s;
+  padding: 8px 20px;
 }
 .btn-secondary:hover,
 .btn-secondary:focus,
@@ -180,4 +202,18 @@ fieldset[disabled] .btn-secondary.active {
 .btn-secondary .badge {
   color: #008296;
   background-color: white;
+}
+.btn-container {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.congrats {
+	text-align: center;
+}
+.congrats > img {
+	width: 75%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
 }

@@ -1,0 +1,50 @@
+---
+title: "Step 2"
+layout: "alexa"
+isPage: true
+---
+
+<div class="container" style="margin-top: 71px;">
+	<h1>Interaction Model</h1>
+
+	<p>Click into the <b>Interaction Model</b> and launch the <b>Skill Builder</b>.</p>
+
+	<h2>Creating an Intent</h2>
+
+	<p>We'll create a custom intent called <b>GetPokemonIntent</b>. For this intent, we're going to add custom slots on the right hand side. We'll add one called <b>PokedexNumber</b>, which we're going to use to ask Alexa for a specific Pokemon. We'll choose a slot type of <b>AMAZON.NUMBER</b>, which is one of Amazon's few prebuilt types.</p>
+
+	<h2>Adding Some Utterances</h2>
+
+	<p>Now, we'll define some sample utterances. This is what we're going to ask Alexa to invoke the GetPokemonIntent. For example:</p>
+
+	<div class="blockquote">
+		<p>"What is the name of pokemon {PokedexNumber}"</p>
+	</div>
+
+	<p>You can go ahead and add as many of these as you want. Let's make a simpler one.</p>
+
+	<div class="blockquote">
+		<p>"Who is {PokedexNumber}"</p>
+	</div>
+
+	<p>Generally a production skill will have over 100 of these to cover all the phrasings that a user might use. The more you add, the better it is for your customers to use it.</p>
+
+	<div class="floating-container">
+		<h2>Save Your Skill</h2>
+
+		<p>To save and submit your skill, <span class="emphasis">MAKE SURE YOU CLICK <b>SAVE MODEL</b> FIRST</span>. If you don't, you may lose all your work!</p>
+
+		<p>After you save your model, click <b>Build Model</b>. This may take a few seconds.</p>
+	</div>
+
+	<p>Now we'll configure our skill.</p>
+</div>
+
+<div class="container btn-container">
+	<div class="left">
+		<a href="/alexa/step1.html" class="btn btn-secondary">← Previous</a>
+	</div>
+	<div class="right">
+		<a href="/alexa/step3.html" class="btn btn-secondary">Next →</a>
+	</div>
+</div>

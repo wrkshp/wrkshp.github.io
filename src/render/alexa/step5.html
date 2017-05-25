@@ -1,0 +1,91 @@
+---
+title: "Step 5"
+layout: "alexa"
+isPage: true
+---
+
+<div class="container" style="margin-top: 71px;">
+	<h1>Coding Your Skill: Pokemon Name</h1>
+
+	<h2>get_pokemon_name</h2>
+
+	<p>Our intent calls the function <span class="code">get_pokemon_name</span>, so let's navigate to that function in the code and fill that out.</p>
+
+	<p>We start off with the following:</p>
+
+	<pre>
+def get_pokemon_name(intent, session):
+    session_attributes = {}
+
+    reprompt_text = None
+
+    #TODO: Get the pokemon's name
+
+    return build_response(session_attributes, build_speechlet_response(
+        intent['name'], speech_output, reprompt_text, should_end_session))</pre>
+
+    <p>To start off, we want to recognize what our intent looks like. It's essentially a dictionary that would look like the following:</p>
+
+    <pre>
+# You don't have to copy this down!
+intent: {
+    'slots': {
+        'PokedexNumber': {
+            'name': 'PokedexNumber',
+            'value': '25'
+        }
+    }
+}</pre>
+
+	<p>The <span class="code">value</span> in our intent is what we're interested in using. This is the value of the <span class="code">POKEMON_SLOT_NAME</span>, which if you recall, is what we've defined as our slot name when we were configuring our interaction model.</p>
+
+	<p>First, we wnat to make sure that this <span class="code">POKEMON_SLOT_NAME</span> is in the intents. We'll do a quick check like so:</p>
+
+	<pre>if POKEMON_SLOT_NAME in intent['slots']:</pre>
+
+	<p>Now, we'll want to get the Pokemon number, or the <span class="code">value</span> in the <span class>intent</span> dictionary above.</p>
+
+	<pre>pokemon_number = intent['slots'][SLOT_INDEX_ID]['value']</pre>
+
+	<p>From the Pokemon number, we want to get the name of the Pokemon. We've provided a <span class="code">get_pokemon</span> function for you already, but here's what it looks like:</p>
+
+	<pre>
+def get_pokemon(index):
+    """ Given a pokemon index, return the pokemon name.
+   """
+    if not POKEMON_PARSED:
+        parse_pokemon()
+
+    return POKEMON_DICT[str(index)]</pre>
+
+    <p>To get the Pokemon's name, we'll call this function with our pokemon number.</p>
+
+    <pre>pokemon_name = get_pokemon(intent['slots'][SLOT_INDEX_ID]['value'])</pre>
+
+    <p>Now that we have the name, we'll want to construct a response for Alexa, rather than just having her say "Pikachu". We'll do this by using a custom <span class="code">speech_output</span>.</p>
+
+    <pre>speech_output = "Pokedex entry " + pokemon_number + " is named " + pokemon_name + "."</pre>
+
+    <p>This speech output will also be displayed on your Alexa Companion app after you've made the request, so make sure to properly punctuate the response.</p>
+
+    <h2>Catching Intent Errors</h2>
+
+    <p>Now, to tie off the if statement we just built, we want to set up an else. This is in the case that our <span class="code">POKEMON_SLOT_NAME</span> is not in our slots. We'll simply wrap it up with a "Please try again" statement from Alexa.</p>
+
+    <pre>
+else:
+    speech_output = "I'm not sure what you mean by that. " \
+                    "Please try again."</pre>
+
+    <p>The final thing in this function is the <span class="code">return</span> statement, which you don't have to worry too much about. Essentially, it just builds the speech output into something that Alexa can understand and say out loud to you.</p>
+
+</div>
+
+<div class="container btn-container">
+	<div class="left">
+		<a href="/alexa/step4.html" class="btn btn-secondary">← Previous</a>
+	</div>
+	<div class="right">
+		<a href="/alexa/step6.html" class="btn btn-secondary">Next →</a>
+	</div>
+</div>

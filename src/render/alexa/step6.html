@@ -1,0 +1,63 @@
+---
+title: "Step 6"
+layout: "alexa"
+isPage: true
+---
+
+<div class="container" style="margin-top: 71px;">
+	<h1>Coding Your Skill: The Help Intent</h1>
+
+	<h2>get_welcome_response</h2>
+
+	<p>If we take a look back at the original if statement inside <span class="code">on_intent</span>...</p>
+
+	<pre>
+if intent_name == "GetPokemonIntent":
+        return get_pokemon_name(intent, session)
+    elif intent_name == "AMAZON.HelpIntent":
+        return get_welcome_response()
+    elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
+        return handle_session_end_request()
+    else:
+        raise ValueError("Invalid intent")</pre>
+
+	<p>we'll see in the first <span class="code">elif</span> that if a <span class="code">HelpIntent</span> is triggered (basically if you ask Alexa for help with your skill), we run a function <span class="code">get_welcome_response</span>. It's called <span class="code">get_welcome_response</span> because it's also meant to be the first thing that the user hears when they start up the skill.</p>
+
+	<p>Here's the existing <span class="code">get_welcome_response()</span>:</p>
+
+	<pre>
+def get_welcome_response():
+    """ If we wanted to initialize the session to have some attributes we could
+   add those here
+   """
+    session_attributes = {}
+    card_title = "Welcome"
+    speech_output = "Welcome to the Echomon skill."
+    # If the user either does not reply to the welcome message or says something
+    # that is not understood, they will be prompted again with this text.
+
+    #TODO: Give a welcome response.
+    reprompt_text = "Please try asking for a pokemon's name by, "
+    should_end_session = False
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))</pre>
+
+    <p>We'll simply give the user a preview on how to use the skill. We'll replace the speech output with:</p>
+
+    <pre>
+speech_output = "Welcome to the Pokemon Info skill. " \
+                "Try asking for a pokemon's name by, " \
+                "What pokemon is number 25?"</pre>
+
+	<p>That pretty much wraps up the coding part! Now, we'll have to submit it to Lambda.</p>
+
+</div>
+
+<div class="container btn-container">
+	<div class="left">
+		<a href="/alexa/step5.html" class="btn btn-secondary">← Previous</a>
+	</div>
+	<div class="right">
+		<a href="/alexa/step7.html" class="btn btn-secondary">Next →</a>
+	</div>
+</div>

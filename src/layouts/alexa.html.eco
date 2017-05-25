@@ -24,37 +24,46 @@
             <!-- Nav links -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="<%= if @document.tab is 'alexa' then 'selected' %>">
+                <!-- <li class="<%= if @document.tab is 'alexa' then 'selected' %>">
                   <a href="/alexa">Alexa</a>
-                </li>
-                <!-- <li class="dropdown <%= if @document.tab is 'sup' then 'selected' %>">
+                </li> -->
+                <li class="dropdown <%= if @document.tab is 'alexa' then 'selected' %>">
                   <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Sup
+                    Alexa
                     <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="dLabel">
                     <li>
-                      <a href="/sup/step1.html">Step 1: Hello World</a>
+                      <a href="/alexa">Get Started</a>
                     </li>
                     <li>
-                      <a href="/sup/step2.html">Step 2: Widgets and Resources</a>
+                      <a href="/alexa/step1.html">Step 1: A New Skill</a>
                     </li>
                     <li>
-                      <a href="/sup/step3.html">Step 3: Activity to Fragment</a>
+                      <a href="/alexa/step2.html">Step 2: Interaction Model</a>
                     </li>
                     <li>
-                      <a href="/sup/step4.html">Step 4: Implementation</a>
+                      <a href="/alexa/step3.html">Step 3: Skill Configuration</a>
                     </li>
                     <li>
-                      <a href="/sup/step4-5.html">Step 4.5: SDK 23+ Permissions</a>
+                      <a href="/alexa/step4.html">Step 4: Coding Your Skill: The Intent</a>
                     </li>
                     <li>
-                      <a href="/sup/step5.html">Step 5: Database Integration</a>
+                      <a href="/alexa/step5.html">Step 5: Coding Your Skill: Pokemon Name</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step6.html">Step 6: Coding Your Skill: The Help Intent</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step7.html">Step 7: Configuring Lambda</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step8.html">Step 8: Testing and Debugging</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step9.html">Step 9: Next Steps</a>
                     </li>
                   </ul>
-                </li> -->
-                <li class="<%= if @document.tab is 'code' then 'selected' %>">
-                  <a href="/alexa/code.html">Sample Code</a>
                 </li>
                 <li class="<%= if @document.tab is 'concepts' then 'selected' %>">
                   <a href="/alexa/concepts.html">Concepts</a>
