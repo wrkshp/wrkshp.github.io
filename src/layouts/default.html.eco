@@ -70,7 +70,7 @@
                 </li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li class="<%= if @document.tab is 'concepts' then 'selected' %>">
+                <li class="<%= if @document.tab is 'contact' then 'selected' %>">
                   <a href="/contact.html">Contact</a>
                 </li>
               </ul>

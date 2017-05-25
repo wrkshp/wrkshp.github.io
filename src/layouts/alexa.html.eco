@@ -24,9 +24,6 @@
             <!-- Nav links -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <!-- <li class="<%= if @document.tab is 'alexa' then 'selected' %>">
-                  <a href="/alexa">Alexa</a>
-                </li> -->
                 <li class="dropdown <%= if @document.tab is 'alexa' then 'selected' %>">
                   <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     Alexa
@@ -70,6 +67,11 @@
                 </li>
                 <li class="<%= if @document.tab is 'resources' then 'selected' %>">
                   <a href="/alexa/resources.html">Resources</a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="<%= if @document.tab is 'contact' then 'selected' %>">
+                  <a href="/contact.html">Contact</a>
                 </li>
               </ul>
             </div>
