@@ -45,7 +45,7 @@ intent: {
 
 	<p>Now, we'll want to get the Pokemon number, or the <span class="code">value</span> in the <span class>intent</span> dictionary above.</p>
 
-	<pre>pokemon_number = intent['slots'][SLOT_INDEX_ID]['value']</pre>
+	<pre>pokemon_number = intent['slots'][POKEMON_SLOT_NAME]['value']</pre>
 
 	<p>From the Pokemon number, we want to get the name of the Pokemon. We've provided a <span class="code">get_pokemon</span> function for you already, but here's what it looks like:</p>
 
@@ -60,7 +60,7 @@ def get_pokemon(index):
 
     <p>To get the Pokemon's name, we'll call this function with our pokemon number.</p>
 
-    <pre>pokemon_name = get_pokemon(intent['slots'][SLOT_INDEX_ID]['value'])</pre>
+    <pre>pokemon_name = get_pokemon(intent['slots'][POKEMON_SLOT_NAME]['value'])</pre>
 
     <p>Now that we have the name, we'll want to construct a response for Alexa, rather than just having her say "Pikachu". We'll do this by using a custom <span class="code">speech_output</span>.</p>
 
@@ -77,15 +77,15 @@ else:
     speech_output = "I'm not sure what you mean by that. " \
                     "Please try again."</pre>
 
-    <p>The final thing in this function is the <span class="code">return</span> statement, which you don't have to worry too much about. Essentially, it just builds the speech output into something that Alexa can understand and say out loud to you.</p>
+    <p>The final thing in this function is the <span class="code">return</span> statement, which builds the speech output into something that Alexa can understand and say out loud to you.</p>
 
 </div>
 
 <div class="container btn-container">
 	<div class="left">
-		<a href="/alexa/step4.html" class="btn btn-secondary">← Previous</a>
+		<a href="/alexa/step4" class="btn btn-secondary">← Previous</a>
 	</div>
 	<div class="right">
-		<a href="/alexa/step6.html" class="btn btn-secondary">Next →</a>
+		<a href="/alexa/step6" class="btn btn-secondary">Next →</a>
 	</div>
 </div>

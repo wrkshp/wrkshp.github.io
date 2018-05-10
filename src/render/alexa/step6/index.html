@@ -9,7 +9,7 @@ isPage: true
 
 	<h2>get_welcome_response</h2>
 
-	<p>If we take a look back at the original if statement inside <span class="code">on_intent</span>...</p>
+    <p>Let's take a look back at the original if statement inside <span class="code">on_intent</span>:</p>
 
 	<pre>
 if intent_name == "GetPokemonIntent":
@@ -45,8 +45,8 @@ def get_welcome_response():
     <p>We'll simply give the user a preview on how to use the skill. We'll replace the speech output with:</p>
 
     <pre>
-speech_output = "Welcome to the Pokemon Info skill. " \
-                "Try asking for a pokemon's name by, " \
+speech_output = "Welcome to the Echomon skill. " \
+                "Try asking for a pokemon's name by asking, " \
                 "What pokemon is number 25?"</pre>
 
 	<p>That pretty much wraps up the coding part! Now, we'll have to submit it to Lambda.</p>
@@ -55,9 +55,9 @@ speech_output = "Welcome to the Pokemon Info skill. " \
 
 <div class="container btn-container">
 	<div class="left">
-		<a href="/alexa/step5.html" class="btn btn-secondary">← Previous</a>
+		<a href="/alexa/step5" class="btn btn-secondary">← Previous</a>
 	</div>
 	<div class="right">
-		<a href="/alexa/step7.html" class="btn btn-secondary">Next →</a>
+		<a href="/alexa/step7" class="btn btn-secondary">Next →</a>
 	</div>
 </div>

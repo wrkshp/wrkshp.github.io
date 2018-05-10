@@ -1,0 +1,60 @@
+---
+title: "Step 3"
+layout: "alexa"
+isPage: true
+---
+
+<div class="container" style="margin-top: 71px;">
+	<h1>Skill Configuration</h1>
+
+	<p>We'll be working on the Skill Endpoint now. In the left menu, click <b>Endpoint</b>, and select <b>AWS Lambda ARN</b>. Here, we'll see our skill ID and several inputs asking us to provide a service endpoint that our skill will reference. We'll have to use AWS for this.</p>
+
+
+	<h2>AWS Lambda</h2>
+
+	<p>In a new tab, open up <a href="https://aws.amazon.com/">aws.amazon.com</a>. Change your location at the top right to <b>US East (N. Virginia)</b>. This is the only physical servers that supports Alexa Skills thus far.</p>
+
+	<div class="blockquote">
+		<p>Make sure you've verified your email with your AWS account. If you haven't, there may be errors that show up that don't seem to make sense.</p>
+	</div>
+
+	<p>Now, navigate to <b>Lambda</b> by typing it into the search bar under <b>AWS services</b>, then click <b>Create a function</b> to get started.</p>
+
+	<h2>Build your Lambda Function</h2>
+
+	<p>Lambda is a really useful tool that Amazon Web Services (AWS) has built to allow you to run a service without provisioning your own servers. Here, we'll be using Lambda to store and run our Skills code.</p>
+
+	<p>We'll be creating our Lambda function from scratch. There are some blueprints (or templates) for Alexa Skills that exist, and you can explore these later if you'd like.</p>
+
+	<p>For now, we'll need to fill in some information.</p>
+	<ul>
+		<li><span class="emphasis">Name</span> is the lambda function name. You can name this whatever you like.</li>
+		<li><span class="emphasis">Runtime</span> is what we'll be using to run our script. We'll use <b>Python 3.6</b>.</li>
+		<li><span class="emphasis">Handler</span> is the entry point, or the <span class="code">main</span> function that we have to call. In our case, we'll fill this out with <span class="code">lambda_function.lambda_handler</span>, which is made up of two things:
+		<ul>
+			<li><span class="code emphasis">lambda_function</span> refers to the fact that we used the "inline" option to submit our code, and thus only have one file. If you build a more complicated skill, you'll have more files to choose from, so in that case, you would replace this with the filename.</li>
+			<li><span class="code emphasis">lambda_handler</span> refers to the function name in the <span class="code">lambda_function</span> that we specified. In our case, we've called our function <span class="code">lambda_handler</span>, which is by default.</li>
+		</ul></li>
+		<li><span class="emphasis">Role</span> helps define the permissions. We'll create a new role from a template.</li>
+		<li><span class="emphasis">Role</span> is used to specify the permissions function. While we won't be diving into what this is exactly, you can <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">learn more here</a>. For our purposes, we'll be creating a new role from a template.</li>
+		<li><span class="emphasis">Role Name</span> is the name of the roll. You can name this whatever you want, but we'll be calling ours <b>AlexaSkill</b>.</li>
+		<li><span class="emphasis">Policy Template</span> is simply a template for our permissions that we have to define. We won't be diving into this, but you can <a href="https://docs.aws.amazon.com/lambda/latest/dg/policy-templates.html">learn more here</a>. We only need <b>Simple Microservice permissions</b>, so select that.</li>
+	</ul>
+
+	<p>Now click <b>Create function</b>.</p>
+
+	<h2>Configuring your Lambda Function</h2>
+
+	<p>We need to add a trigger for this function. Select <b>Alexa Skills Kit</b> and we'll need to configure the triggers. Remember the Skill ID from our Alexa Skills developer console? Go back to that tab, copy <b>Your Skill ID</b>, and then paste it into the Lambda window. Lambda should take care of the basic permissions for Alexa.</p>
+
+	<p>Once you've input this ID, you'll notice that it says <span class="emphasis">unsaved changes</span> all over the page. Hit the <b>Save</b> button at the top right of the page.</p>
+</div>
+
+<div class="container btn-container">
+	<div class="left">
+		<a href="/alexa/step2" class="btn btn-secondary">← Previous</a>
+	</div>
+	<div class="right">
+		<a href="/alexa/step4" class="btn btn-secondary">Next →</a>
+	</div>
+</div>
