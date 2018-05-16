@@ -30,12 +30,6 @@ isPage: true
 	<ul>
 		<li><span class="emphasis">Name</span> is the lambda function name. You can name this whatever you like.</li>
 		<li><span class="emphasis">Runtime</span> is what we'll be using to run our script. We'll use <b>Python 3.6</b>.</li>
-		<li><span class="emphasis">Handler</span> is the entry point, or the <span class="code">main</span> function that we have to call. In our case, we'll fill this out with <span class="code">lambda_function.lambda_handler</span>, which is made up of two things:
-		<ul>
-			<li><span class="code emphasis">lambda_function</span> refers to the fact that we used the "inline" option to submit our code, and thus only have one file. If you build a more complicated skill, you'll have more files to choose from, so in that case, you would replace this with the filename.</li>
-			<li><span class="code emphasis">lambda_handler</span> refers to the function name in the <span class="code">lambda_function</span> that we specified. In our case, we've called our function <span class="code">lambda_handler</span>, which is by default.</li>
-		</ul></li>
-		<li><span class="emphasis">Role</span> helps define the permissions. We'll create a new role from a template.</li>
 		<li><span class="emphasis">Role</span> is used to specify the permissions function. While we won't be diving into what this is exactly, you can <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">learn more here</a>. For our purposes, we'll be creating a new role from a template.</li>
 		<li><span class="emphasis">Role Name</span> is the name of the roll. You can name this whatever you want, but we'll be calling ours <b>AlexaSkill</b>.</li>
 		<li><span class="emphasis">Policy Template</span> is simply a template for our permissions that we have to define. We won't be diving into this, but you can <a href="https://docs.aws.amazon.com/lambda/latest/dg/policy-templates.html">learn more here</a>. We only need <b>Simple Microservice permissions</b>, so select that.</li>

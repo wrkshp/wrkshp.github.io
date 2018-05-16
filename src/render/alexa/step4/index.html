@@ -7,9 +7,13 @@ isPage: true
 <div class="container" style="margin-top: 71px;">
 	<h1>Coding Your Skill: The Intent</h1>
 
-    <p class="todo">Use <a href="https://stackoverflow.com/questions/4000792/how-can-i-style-code-listings-using-css">prism.js</a> to highlight the code homie</p>
-
     <p>Your page may still be stuck on the Skill ID configuration page. Refresh the page to get to the code input section.</p>
+
+    <p>Once that loads, you'll see the Function Code section. We don't need to change anything here, but just for reference, the <span class="emphasis">handler</span> is the entry point, or the <span class="code">main</span> function that we have to call. It's filled in with <span class="code">lambda_function.lambda_handler</span>, which is made up of two things:
+    <ul>
+        <li><span class="code emphasis">lambda_function</span> refers to the fact that we used the "inline" option to submit our code, and thus only have one file. If you build a more complicated skill, you'll have more files to choose from, so in that case, you would replace this with the filename.</li>
+        <li><span class="code emphasis">lambda_handler</span> refers to the function name in the <span class="code">lambda_function</span> that we specified. In our case, we've called our function <span class="code">lambda_handler</span>, which is by default.</li>
+    </ul></p>
 
 	<h2>Code Skeleton</h2>
 
