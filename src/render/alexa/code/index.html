@@ -20,7 +20,7 @@ as testing instructions are located at http://amzn.to/1LzFrj6
 
 import urllib.request
 
-POKEDEX_LOC = 'https://s3-us-west-2.amazonaws.com/uci-workshop-pokemon/pokemonList'
+POKEDEX_LOC = 'https://s3.amazonaws.com/alexa-skills-pokemon-workshop/pokemonList'
 POKEMON_SLOT_NAME = 'PokedexNumber'
 
 # --------------- Helpers that build all of the responses ----------------------
@@ -57,12 +57,13 @@ def build_response(session_attributes, speechlet_response):
 # --------------- Functions that control the skill's behavior ------------------
 
 def get_welcome_response():
-    """ If we wanted to initialize the session to have some attributes we could
-   add those here
-   """
+    """
+    If we wanted to initialize the session to have some attributes we could
+    add those here
+    """
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Welcome to the Pokemon Info skill."
+    speech_output = "Welcome to the Echomon skill."
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
 
@@ -98,9 +99,10 @@ def get_pokemon_name(intent, session):
 
 
 def on_launch(launch_request, session):
-    """ Called when the user launches the skill without specifying what they
-   want
-   """
+    """
+    Called when the user launches the skill without specifying what they
+    want
+    """
     print("on_launch requestId=" + launch_request['requestId'] +
           ", sessionId=" + session['sessionId'])
     # Dispatch to your skill's launch
@@ -108,7 +110,9 @@ def on_launch(launch_request, session):
 
 
 def on_intent(intent_request, session):
-    """ Called when the user specifies an intent for this skill """
+    """
+    Called when the user specifies an intent for this skill
+    """
 
     print("on_intent requestId=" + intent_request['requestId'] +
           ", sessionId=" + session['sessionId'])
@@ -130,17 +134,18 @@ def on_intent(intent_request, session):
 # --------------- Main handler ------------------
 
 def lambda_handler(event, context):
-    """ Route the incoming request based on type (LaunchRequest, IntentRequest,
-   etc.) The JSON body of the request is provided in the event parameter.
-   """
+    """
+    Route the incoming request based on type (LaunchRequest, IntentRequest,
+    etc.) The JSON body of the request is provided in the event parameter.
+    """
     print("event.session.application.applicationId=" +
           event['session']['application']['applicationId'])
 
     """
-   Uncomment this if statement and populate with your skill's application ID to
-   prevent someone else from configuring a skill that sends requests to this
-   function.
-   """
+    Uncomment this if statement and populate with your skill's application ID to
+    prevent someone else from configuring a skill that sends requests to this
+    function.
+    """
     # if (event['session']['application']['applicationId'] !=
     #         "amzn1.echo-sdk-ams.app.[unique-value-here]"):
     #     raise ValueError("Invalid Application ID")
@@ -157,8 +162,9 @@ POKEMON_DICT = {}
 POKEMON_PARSED = False
 
 def parse_pokemon():
-    """ Parse pokemon information from the S3 store
-   """
+    """
+    Parse pokemon information from the S3 store
+    """
     with urllib.request.urlopen(POKEDEX_LOC) as pokedex:
         for pokemon in pokedex.readlines():
             index, name = pokemon.decode('utf-8')[:-1].split(',')
@@ -167,13 +173,13 @@ def parse_pokemon():
     POKEMON_PARSED = True
 
 def get_pokemon(index):
-    """ Given a pokemon index, return the pokemon name.
-   """
+    """
+    Given a pokemon index, return the pokemon name.
+    """
     if not POKEMON_PARSED:
         parse_pokemon()
 
-    return POKEMON_DICT[str(index)]
-</pre>
+    return POKEMON_DICT[str(index)]</pre>
 
 <button class="btn btn-secondary right" type="button" onclick="selectText()">Select All</button>
 </div>

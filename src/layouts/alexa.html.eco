@@ -24,7 +24,15 @@
             <!-- Nav links -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="dropdown <%= if @document.tab is 'alexa' then 'selected' %>">
+
+
+                <li class="<%= if @document.tab is 'alexa' then 'selected'%>">
+                  <a href="/alexa/">Alexa</a>
+                </li>
+                <li class="<%= if @document.tab is 'code' then 'selected'%>">
+                  <a href="/alexa/code">Code</a>
+                </li>
+                <!-- <li class="dropdown <%= if @document.tab is 'alexa' then 'selected' %>">
                   <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     Alexa
                     <span class="caret"></span>
@@ -61,7 +69,9 @@
                       <a href="/alexa/step9">Step 9: Next Steps</a>
                     </li>
                   </ul>
-                </li>
+                </li> -->
+
+
                 <li class="<%= if @document.tab is 'concepts' then 'selected' %>">
                   <a href="/alexa/concepts">Concepts</a>
                 </li>
