@@ -29,6 +29,7 @@ def get_pokemon_name(intent, session):
     <pre>
 # You don't have to copy this down!
 intent: {
+    ...
     'slots': {
         'PokedexNumber': {
             'name': 'PokedexNumber',
@@ -51,8 +52,9 @@ intent: {
 
 	<pre>
 def get_pokemon(index):
-    """ Given a pokemon index, return the pokemon name.
-   """
+    """
+    Given a pokemon index, return the pokemon name.
+    """
     if not POKEMON_PARSED:
         parse_pokemon()
 
