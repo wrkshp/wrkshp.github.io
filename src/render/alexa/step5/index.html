@@ -62,7 +62,7 @@ def get_pokemon(index):
 
     <p>To get the Pokemon's name, we'll call this function with our pokemon number.</p>
 
-    <pre>pokemon_name = get_pokemon(intent['slots'][POKEMON_SLOT_NAME]['value'])</pre>
+    <pre>pokemon_name = get_pokemon(pokemon_number)</pre>
 
     <p>Now that we have the name, we'll want to construct a response for Alexa, rather than just having her say "Pikachu". We'll do this by using a custom <span class="code">speech_output</span>.</p>
 

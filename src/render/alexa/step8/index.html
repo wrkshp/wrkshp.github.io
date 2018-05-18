@@ -57,7 +57,7 @@ isPage: true
 	<pre>
 if POKEMON_SLOT_NAME in intent['slots']:
     pokemon_number = intent['slots'][POKEMON_SLOT_NAME]['value']
-    pokemon_name = get_pokemon(intent['slots'][POKEMON_SLOT_NAME]['value'])
+    pokemon_name = get_pokemon(pokemon_number)
     speech_output = "Pokedex entry " + pokemon_number + " is named " + pokemon_name + "."
     should_end_session = True
 else:
