@@ -7,12 +7,12 @@ isPage: true
 <div class="container" style="margin-top: 71px;">
 	<h1>Skill Configuration</h1>
 
-	<p>We'll be working on the Skill Endpoint now. In the left menu, click <b>Endpoint</b>, and select <b>AWS Lambda ARN</b>. Here, we'll see our skill ID and several inputs asking us to provide a service endpoint that our skill will reference. We'll have to use AWS for this.</p>
+	<p>We'll be working on the Skill Endpoint now. In the left menu, click <b>Endpoint</b>, and select <b>AWS Lambda ARN</b>. ARN here stands for "Amazon Resource Number", which is an internal identifier. Here, we'll see our skill ID and several inputs asking us to provide a service endpoint that our skill will reference. We'll have to use AWS for this.</p>
 
 
 	<h2>AWS Lambda</h2>
 
-	<p>In a new tab, open up <a href="https://aws.amazon.com/">aws.amazon.com</a>. Change your location at the top right to <b>US East (N. Virginia)</b>. This is the only physical servers that supports Alexa Skills thus far.</p>
+	<p>In a new tab, open up <a href="https://aws.amazon.com/">aws.amazon.com</a> and sign in. Change your location at the top right to <b>US East (N. Virginia)</b>. This is the default server that supports Alexa Skills.</p>
 
 	<div class="blockquote">
 		<p>Make sure you've verified your email with your AWS account. If you haven't, there may be errors that show up that don't seem to make sense.</p>
@@ -28,11 +28,9 @@ isPage: true
 
 	<p>For now, we'll need to fill in some information.</p>
 	<ul>
-		<li><span class="emphasis">Name</span> is the lambda function name. You can name this whatever you like.</li>
+		<li><span class="emphasis">Function name</span> is the lambda function name. You can name this whatever you like.</li>
 		<li><span class="emphasis">Runtime</span> is what we'll be using to run our script. We'll use <b>Python 3.6</b>.</li>
-		<li><span class="emphasis">Role</span> is used to specify the permissions function. While we won't be diving into what this is exactly, you can <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">learn more here</a>. For our purposes, we'll be creating a new role from a template.</li>
-		<li><span class="emphasis">Role Name</span> is the name of the roll. You can name this whatever you want, but we'll be calling ours <b>AlexaSkill</b>.</li>
-		<li><span class="emphasis">Policy Template</span> is simply a template for our permissions that we have to define. We won't be diving into this, but you can <a href="https://docs.aws.amazon.com/lambda/latest/dg/policy-templates.html">learn more here</a>. We only need <b>Simple Microservice permissions</b>, so select that.</li>
+		<li><span class="emphasis">Execution role</span> is used to specify the permissions function. While we won't be diving into what this is exactly, you can <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">learn more here</a>. For our purposes, we'll be creating a new role with basic Lambda permissions.</li>
 	</ul>
 
 	<p>Now click <b>Create function</b>.</p>

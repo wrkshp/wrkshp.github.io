@@ -7,7 +7,7 @@ isPage: true
 <div class="container" style="margin-top: 71px;">
 	<h1>Coding Your Skill: The Intent</h1>
 
-    <p>Your page may still be stuck on the Skill ID configuration page. Refresh the page to get to the code input section.</p>
+    <p>Scroll to the top under <span class="emphasis">Designer</span> where the graph is. You'll see that <span class="emphasis">Alexa Skills Kit</span> is selected. Select your function name to configure the code.</p>
 
     <p>Once that loads, you'll see the Function Code section. We don't need to change anything here, but just for reference, the <span class="emphasis">handler</span> is the entry point, or the <span class="code">main</span> function that we have to call. It's filled in with <span class="code">lambda_function.lambda_handler</span>, which is made up of two things:
     <ul>
@@ -77,10 +77,13 @@ def get_welcome_response():
 
     #TODO: Give a welcome response.
     reprompt_text = "Please try asking for a pokemon's name by, "
-    should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
+def get_fallback_response():
+    card_title = "Sorry"
+    speech_output = "I haven't heard of that Pokemon before. Try again."
+    return build_response({}, build_speechlet_response)
 
 def handle_session_end_request():
     card_title = "Session Ended"
@@ -131,6 +134,8 @@ def on_intent(intent_request, session):
     # TODO: Dispatch to your skill's intent handlers
     if intent_name == "":
         return get_pokemon_name(intent, session)
+    elif intent_name == "AMAZON.FallbackIntent":
+        return get_fallback_response()
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
@@ -207,7 +212,7 @@ POKEMON_SLOT_NAME = 'PokedexNumber'</pre>
 
 	<p>First, we'll focus on the <span class="code">on_intent</span> function. This is the function that will be called when the request that comes into the lambda function is made. From this request, we're going to grab the <span class="code">intent_name</span>, which we defined in the interaction model. In our case, we'll use <span class="code">GetPokemonIntent</span>. This is to help Alexa figure out what action to invoke based on the user's intent. We'll insert our intent name into the if statement.</p>
 
-	<p>Your <span class="code">on_intent</span> function should now look like the following which should now look like the following.</p>
+	<p>Your <span class="code">on_intent</span> function should now look like the following:</p>
 
 	<pre>
 def on_intent(intent_request, session):
@@ -222,6 +227,8 @@ def on_intent(intent_request, session):
     # TODO: Dispatch to your skill's intent handlers
     if intent_name == "GetPokemonIntent":
         return get_pokemon_name(intent, session)
+    elif intent_name == "AMAZON.FallbackIntent":
+        return get_fallback_response()
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
@@ -231,7 +238,7 @@ def on_intent(intent_request, session):
 
     <p>In the code segment above, you can see that if the intent called is "GetPokemonIntent", then it'll return the result of a function called <span class="code">get_pokemon_name</span>. We'll get into this a little more later, but you'll simply follow this pattern if your skill requires more than one intent, adding more and more into this if statement.</p>
 
-    <p>Also in the code segment, you'll see three other intents: the <span class="code">AMAZON.HelpIntent</span>, the <span class="code">AMAZON.CancelIntent</span>, and the <span class="code">AMAZON.StopIntent</span>. These three are required by Amazon, and should you want to submit your skill, your skill will not be approved without these three.</p>
+    <p>Also in the code segment, you'll see four other intents: the <span class="code">AMAZON.FallbackIntent</span>, which we explained earlier, and the <span class="code">AMAZON.HelpIntent</span>, the <span class="code">AMAZON.CancelIntent</span>, and the <span class="code">AMAZON.StopIntent</span>. These three are required by Amazon, and should you want to submit your skill, your skill will not be approved without these three.</p>
 
 </div>
 

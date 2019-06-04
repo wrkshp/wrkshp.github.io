@@ -11,7 +11,7 @@ isPage: true
 
 	<p>If you entered from the left menu, you'll see a list of all of our intents. An <span class="emphasis">intent</span> is how Alexa handles the request that the use makes to Alexa.</p>
 
-	<p>So far, we have 4 built in intents. AMAZON.StopIntent, AMAZON.HelpIntent, and AMAZON.CancelIntent are required and fairly self explanatory.</p>
+	<p>So far, we have 5 built in intents. AMAZON.StopIntent, AMAZON.HelpIntent, and AMAZON.CancelIntent are required and fairly self explanatory. AMAZON.FallbackIntent is used for when Alexa doesn't know how to respond, so she'll respond according to how you define this intent. There's also AMAZON.NavigateHomeIntent, but we don't need to worry about this one for now.</p>
 
 	<p>Click <b>Add Intent</b> to create the custom intent.</p>
 
@@ -23,9 +23,9 @@ isPage: true
 
 	<h2>Intent Slots</h2>
 
-	<p>At the bottom half of the window, we'll add some custom slots first. We'll add one called <b>PokedexNumber</b>, which we're going to use to ask Alexa for a specific Pokemon. We'll choose a slot type of <b>AMAZON.NUMBER</b>, which is one of the prebuilt types.</p>
+	<p>At the bottom half of the window, we'll add some custom slots first. We'll add one called <b>PokedexNumber</b>, which we're going to use to ask Alexa for a specific Pokemon. Click the <b>+</b> button, and it'll allow us to choose a slot type of <b>AMAZON.NUMBER</b>, which is one of the prebuilt types.</p>
 
-	<p>This also automatically adds a new <span class="emphasis">Slot Type</span> in the left menu. You should see AMAZON.NUMBER appear there now.</p>
+	<p>This also automatically adds your slot underneath your custom intent in the left menu. You should see PokedexNumber appear there now.</p>
 
 	<h2>Adding Some Utterances</h2>
 
