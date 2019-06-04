@@ -1,0 +1,264 @@
+<html lang="en">
+
+<head>
+    <title>WRKSHP
+         | Step 8
+    </title>
+    <!-- CSS and JS -->
+    <link  rel="stylesheet" href="/css/bootstrap.css" /><link  rel="stylesheet" href="/css/theme.css" /><link  rel="stylesheet" href="/css/style.css" />
+        <script defer="defer"  src="/js/jquery.js"></script><script defer="defer"  src="/js/bootstrap.js"></script><script defer="defer"  src="/js/scripts.js"></script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">WRKSHP</a>
+            </div>
+
+            <!-- Nav links -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+
+
+                
+                <li class="dropdown ">
+                  <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Alexa
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <li>
+                      <a href="/alexa">Get Started</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step1">Step 1: A New Skill</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step2">Step 2: Interaction Model</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step3">Step 3: Skill Configuration</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step4">Step 4: Coding Your Skill: The Intent</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step5">Step 5: Coding Your Skill: Pokemon Name</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step6">Step 6: Coding Your Skill: The Help Intent</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step7">Step 7: Configuring Lambda</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step8">Step 8: Testing and Debugging</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step9">Step 9: Next Steps</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="">
+                  <a href="/alexa/code">Code</a>
+                </li>
+                <li class="">
+                  <a href="/alexa/concepts">Concepts</a>
+                </li>
+                <li class="">
+                  <a href="/alexa/resources">Resources</a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container" style="margin-top: 71px;">
+  <h1>Testing and Debugging</h1>
+
+  <h2>Testing Your Skill</h2>
+
+  <p>At the top of the page, click the <b>Build</b> tab to get back to the Skill dashboard. Ensure that all items (except for In-Skill Products) under the Skill builder checklist are marked with green checkmarks, otherwise you won't be able to test your skill.</p>
+
+  <p>Back at the top of the page, click the <b>Test</b> tab and enable testing to view the Test Lab.</p>
+
+  <p>On the left, there's an <b>Alexa Simulator</b> where you can interact with Alexa however you want, and on the right, there's a <b>Skill I/O</b> section that isn't enabled yet. Let's activiate it. Type or speak into the Alexa Simulator:</p>
+
+  <div class="blockquote">
+    <p>Open Echomon</p>
+  </div>
+
+  <p>This will trigger the Skill I/O section and show a JSON Input and JSON Output. Alexa will speak the welcome response we configured earlier. Now let's try this one out:</p>
+
+  <div class="blockquote">
+    <p>Ask Echomon who is 25?</p>
+  </div>
+
+  <p>At this point, your test will fail! Don't panic! This is normal!</p>
+
+  <h2>Debugging With Lambda</h2>
+
+  <p>Right now, in your JSON Output, you should be seeing</p>
+
+  <div class="blockquote">
+    <p class="code">null</p>
+  </div>
+
+  <p>Well, that's not very informative. Let's figure out why this is happening.</p>
+
+  <p>Let's go back to our <a href="https://aws.amazon.com">AWS Console</a>. At the very top, next to the Save button, there's a Test button and a dropdown menu. Select the <b>dropdown menu</b>, and select <b>Configure Test Events</b>. We'll select <b>Create new test event</b>, and under <b>Event Template</b>, search for <b>Amazon Alexa Start Session</b>. We can call this event <b>launchRequest</b>. Click <b>Create</b> at the bottom, and now click the <b>Test</b> button.</p>
+  
+  <p>Now, you should be seeing a failed execution. Let's click <b>Details</b>, and you'll get an error that looks like the following:</p>
+
+  <pre>
+{
+  "errorMessage": "name 'should_end_session' is not defined",
+  "errorType": "NameError",
+  "stackTrace": [...]
+}</pre>
+
+  <p>It looks like we're missing a variable called <span class="code">should_end_session</span>. Looking at the stack trace, it'll point you to a line number inside the <span class="code">get_welcome_response</span> function. Looks like we forgot to include it here!</p>
+
+  <p>The <span class="code">should_end_session</span> variable determines whether we should end the session or not. For example, if there's an error and you want Alexa to prompt the user to try again, you would set <span class="code">should_end_session = False</span>, whereas if Alexa has completed the task, you'll set <span class="code">should_end_session = True</span>. In this case, after the user has been welcomed to the Echomon skill, you'll want to set it to <span class="code">False</span> because we want to give the user time to try out the skill.</p>
+
+  <pre>
+def get_welcome_response():
+    
+    ...
+
+    #TODO: Give a welcome response.
+    reprompt_text = "Please try asking for a pokemon's name by, "
+    should_end_session = False
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))</pre>
+
+    <p>Click <b>Save</b> again, then <b>Test</b> again, and the execution result should succeed!</p>
+    
+    <p>Another way to debug is by checking <span class="emphasis">CloudWatch Logs</span>. Next to your Execution result, you should see a link to view your <b>logs</b>. Let's click that to see where it takes us.</p>
+
+    <p>Now, these CloudWatch logs are a little tricky to understand. Let's click the first one at the top of the list. This is the most recent test that we ran. We'll see that there's nothing here to note. However, when we click the second one, you'll see that there's a lot more information here, including a log that has the error message we had above.</p>
+
+    <div class="blockquote">
+      <p class="code">name 'should_end_session' is not defined: Name Error</p>
+    </div>
+
+    <p>If we expand that option, you'll see a stacktrace that tells you where this error occurred. This can be useful when we're testing in our skill and it gives us strange errors.</p>
+
+    <p>Speaking of testing our skill, let's head back to our <a href="https://developer.amazon.com">developer console</a>. We'll try our command again. This time, you should get a Lambda response in JSON. If you scroll to the bottom of the <b>JSON Input</b>, you should see <span class="code">request.type</span> is a <span class="code">LaunchRequest</span>, and in the <b>JSON Output</b> under <span class="code">response.outputSpeech.text</span>, it should print what you've told her to say.</p>
+
+    <h2>Debugging With CloudWatch</h2>
+
+    <p>Great! Now that our welcome response works, let's try one of our utterances. Type in or speak:</p>
+
+    <div class="blockquote">
+      <p>What is the name of Pokemon 25?</p>
+    </div>
+
+    <p>Again, the JSON Output we're seeing is</p>
+
+    <div class="blockquote">
+      <p class="code">null</p>
+    </div>
+
+    <p>What do you think we should do?</p>
+
+    <p>If you scroll to the bottom of the <b>JSON Input</b>, you'll see a failed request:</p>
+
+    <pre>
+"request": {
+  "type": "SessionEndedRequest",
+  "requestId": "amzn1.echo-api.request.d7863dae-ead9-412b-a663-d58da5584f70",
+  "timestamp": "2019-06-03T19:19:51Z",
+  "locale": "en-US",
+  "reason": "ERROR",
+  "error": {
+    "type": "INVALID_RESPONSE",
+    "message": "An exception occurred while dispatching the request to the skill."
+  }
+}</pre>
+
+    <p>This isn't very useful in itself, but we can head back to our <b>CloudWatch Logs</b> and refresh the page. (If you closed that window already, you can find it again by running our <span class="emphasis">launchRequest</span> test from your AWS Console again, and clicking the logs button.)</p>
+
+    <p>Click the most recent log at the top of the logs table, and you'll see that the most recent log, once again, is showing an error:</p>
+
+    <div class="blockquote">
+      <p class="code">name 'should_end_session' is not defined: Name Error</p>
+    </div>
+
+    <p>When we nail down the line it's erroring at, you'll see that this time, we're missing <span class="code">should_end_session</span> in <span class="code">get_pokemon_name</span>. Let's go ahead and add that boolean to the end of each condition.</p>
+
+    <pre>
+if POKEMON_SLOT_NAME in intent['slots']:
+    pokemon_number = intent['slots'][POKEMON_SLOT_NAME]['value']
+    pokemon_name = get_pokemon(pokemon_number)
+    speech_output = "Pokedex entry " + pokemon_number + " is named " + pokemon_name + "."
+    should_end_session = True
+else:
+    speech_output = "I'm not sure what you mean by that. " \
+                    "Please try again."
+    should_end_session = False</pre>
+
+    <p>Now click <b>Save</b>, and go back to your <b>Developer Console</b>. Try entering your utterance again.</p>
+
+    <div class="blockquote">
+      <p>Ask echomon what is the name of Pokemon 25?</p>
+    </div>
+
+    <p>Now Alexa should respond with Pikachu!</p>
+
+    <p>You'll also notice that in your <b>JSON Input</b> at the very bottom, you'll see our request:</p>
+
+    <pre>
+"request": {
+  "type": "IntentRequest",
+  "requestId": "amzn1.echo-api.request.434b53a7-7c3c-4a27-8f59-5457e130ece5",
+  "timestamp": "2019-06-02T04:24:09Z",
+  "locale": "en-US",
+  "intent": {
+    "name": "GetPokemonIntent",
+    "confirmationStatus": "NONE",
+    "slots": {
+      "PokedexNumber": {
+        "name": "PokedexNumber",
+        "value": "25",
+        "confirmationStatus": "NONE",
+        "source": "USER"
+      }
+    }
+  }
+}</pre>
+
+    <p>This looks great! Just as we expect it to. Another way to debug is to copy the whole of your JSON Input and create a new test case in your AWS Console and run it there. You'll see that your execution succeeds, and the result of that looks just like the body of the JSON Output.</p>
+
+    <h2>Edge Cases</h2>
+
+    <p>Don't forget that it's always good practice to test your edge cases. Remember that the list we've provided consists of first generation Pokemon. This means that only asking for Pokemon #1 through #151 are valid. If you ask Alexa "Who is 200", the Lambda response will be invalid.</p>
+
+  <p>Since this isn't an Alexa specific debugging issue, see if you can debug this yourself! Remember that the <span class="code">value</span> stored inside of our request object is a string, not an integer. To convert from string to integer, you can use <span class="code">int(string)</span>.</p>
+</div>
+
+<div class="container btn-container">
+  <div class="left">
+    <a href="/alexa/step7" class="btn btn-secondary">← Previous</a>
+  </div>
+  <div class="right">
+    <a href="/alexa/step9" class="btn btn-secondary">Next →</a>
+  </div>
+</div>
+
+</body>
+
+</html>

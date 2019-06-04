@@ -1,0 +1,138 @@
+<html lang="en">
+
+<head>
+    <title>WRKSHP
+         | Step 3
+    </title>
+    <!-- CSS and JS -->
+    <link  rel="stylesheet" href="/css/bootstrap.css" /><link  rel="stylesheet" href="/css/theme.css" /><link  rel="stylesheet" href="/css/style.css" />
+        <script defer="defer"  src="/js/jquery.js"></script><script defer="defer"  src="/js/bootstrap.js"></script><script defer="defer"  src="/js/scripts.js"></script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">WRKSHP</a>
+            </div>
+
+            <!-- Nav links -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+
+
+                
+                <li class="dropdown ">
+                  <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Alexa
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <li>
+                      <a href="/alexa">Get Started</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step1">Step 1: A New Skill</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step2">Step 2: Interaction Model</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step3">Step 3: Skill Configuration</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step4">Step 4: Coding Your Skill: The Intent</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step5">Step 5: Coding Your Skill: Pokemon Name</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step6">Step 6: Coding Your Skill: The Help Intent</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step7">Step 7: Configuring Lambda</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step8">Step 8: Testing and Debugging</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step9">Step 9: Next Steps</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="">
+                  <a href="/alexa/code">Code</a>
+                </li>
+                <li class="">
+                  <a href="/alexa/concepts">Concepts</a>
+                </li>
+                <li class="">
+                  <a href="/alexa/resources">Resources</a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container" style="margin-top: 71px;">
+	<h1>Skill Configuration</h1>
+
+	<p>We'll be working on the Skill Endpoint now. In the left menu, click <b>Endpoint</b>, and select <b>AWS Lambda ARN</b>. ARN here stands for "Amazon Resource Number", which is an internal identifier. Here, we'll see our skill ID and several inputs asking us to provide a service endpoint that our skill will reference. We'll have to use AWS for this.</p>
+
+
+	<h2>AWS Lambda</h2>
+
+	<p>In a new tab, open up <a href="https://aws.amazon.com/">aws.amazon.com</a> and sign in. Change your location at the top right to <b>US East (N. Virginia)</b>. This is the default server that supports Alexa Skills.</p>
+
+	<div class="blockquote">
+		<p>Make sure you've verified your email with your AWS account. If you haven't, there may be errors that show up that don't seem to make sense.</p>
+	</div>
+
+	<p>Now, navigate to <b>Lambda</b> by typing it into the search bar under <b>AWS services</b>, then click <b>Create a function</b> to get started.</p>
+
+	<h2>Build your Lambda Function</h2>
+
+	<p>Lambda is a really useful tool that Amazon Web Services (AWS) has built to allow you to run a service without provisioning your own servers. Here, we'll be using Lambda to store and run our Skills code.</p>
+
+	<p>We'll be creating our Lambda function from scratch. There are some blueprints (or templates) for Alexa Skills that exist, and you can explore these later if you'd like.</p>
+
+	<p>For now, we'll need to fill in some information.</p>
+	<ul>
+		<li><span class="emphasis">Function name</span> is the lambda function name. You can name this whatever you like.</li>
+		<li><span class="emphasis">Runtime</span> is what we'll be using to run our script. We'll use <b>Python 3.6</b>.</li>
+		<li><span class="emphasis">Execution role</span> is used to specify the permissions function. While we won't be diving into what this is exactly, you can <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">learn more here</a>. For our purposes, we'll be creating a new role with basic Lambda permissions.</li>
+	</ul>
+
+	<p>Now click <b>Create function</b>.</p>
+
+	<h2>Configuring your Lambda Function</h2>
+
+	<p>We need to add a trigger for this function. Select <b>Alexa Skills Kit</b> and we'll need to configure the triggers. Remember the Skill ID from our Alexa Skills developer console? Go back to that tab, copy <b>Your Skill ID</b>, and then paste it into the Lambda window. Lambda should take care of the basic permissions for Alexa.</p>
+
+	<p>Once you've input this ID, you'll notice that it says <span class="emphasis">unsaved changes</span> all over the page. Hit the <b>Save</b> button at the top right of the page.</p>
+</div>
+
+<div class="container btn-container">
+	<div class="left">
+		<a href="/alexa/step2" class="btn btn-secondary">← Previous</a>
+	</div>
+	<div class="right">
+		<a href="/alexa/step4" class="btn btn-secondary">Next →</a>
+	</div>
+</div>
+
+</body>
+
+</html>

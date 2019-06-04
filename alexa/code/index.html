@@ -1,0 +1,290 @@
+<html lang="en">
+
+<head>
+    <title>WRKSHP
+         | Sample Code
+    </title>
+    <!-- CSS and JS -->
+    <link  rel="stylesheet" href="/css/bootstrap.css" /><link  rel="stylesheet" href="/css/theme.css" /><link  rel="stylesheet" href="/css/style.css" />
+        <script defer="defer"  src="/js/jquery.js"></script><script defer="defer"  src="/js/bootstrap.js"></script><script defer="defer"  src="/js/scripts.js"></script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">WRKSHP</a>
+            </div>
+
+            <!-- Nav links -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+
+
+                
+                <li class="dropdown ">
+                  <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Alexa
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <li>
+                      <a href="/alexa">Get Started</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step1">Step 1: A New Skill</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step2">Step 2: Interaction Model</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step3">Step 3: Skill Configuration</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step4">Step 4: Coding Your Skill: The Intent</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step5">Step 5: Coding Your Skill: Pokemon Name</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step6">Step 6: Coding Your Skill: The Help Intent</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step7">Step 7: Configuring Lambda</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step8">Step 8: Testing and Debugging</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step9">Step 9: Next Steps</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="selected">
+                  <a href="/alexa/code">Code</a>
+                </li>
+                <li class="">
+                  <a href="/alexa/concepts">Concepts</a>
+                </li>
+                <li class="">
+                  <a href="/alexa/resources">Resources</a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container floating-container" style="margin-top: 71px;">
+
+<h1>Alexa Sample Code</h1>
+
+<p>Here's the sample code we'll be using to start our project. It's written in Python 3.6 and based off of the blueprint found in Alexa.</p>
+
+<pre id="code">
+"""
+This sample demonstrates a simple skill built with the Amazon Alexa Skills Kit.
+The Intent Schema, Custom Slots, and Sample Utterances for this skill, as well
+as testing instructions are located at http://amzn.to/1LzFrj6
+"""
+
+import urllib.request
+
+POKEDEX_LOC = 'https://s3.amazonaws.com/alexa-skills-pokemon-workshop/pokemonList'
+POKEMON_SLOT_NAME = 'PokedexNumber'
+
+# --------------- Helpers that build all of the responses ----------------------
+
+def build_speechlet_response(title, output, reprompt_text, should_end_session):
+    return {
+        'outputSpeech': {
+            'type': 'PlainText',
+            'text': output
+        },
+        'card': {
+            'type': 'Simple',
+            'title': "SessionSpeechlet - " + title,
+            'content': "SessionSpeechlet - " + output
+        },
+        'reprompt': {
+            'outputSpeech': {
+                'type': 'PlainText',
+                'text': reprompt_text
+            }
+        },
+        'shouldEndSession': should_end_session
+    }
+
+
+def build_response(session_attributes, speechlet_response):
+    return {
+        'version': '1.0',
+        'sessionAttributes': session_attributes,
+        'response': speechlet_response
+    }
+
+
+# --------------- Functions that control the skill's behavior ------------------
+
+def get_welcome_response():
+    """
+    If we wanted to initialize the session to have some attributes we could
+    add those here
+    """
+    session_attributes = {}
+    card_title = "Welcome"
+    speech_output = "Welcome to the Echomon skill. "
+    # If the user either does not reply to the welcome message or says something
+    # that is not understood, they will be prompted again with this text.
+
+    #TODO: Give a welcome response.
+    reprompt_text = "Please try asking for a pokemon's name by, "
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+def get_fallback_response():
+    card_title = "Sorry"
+    speech_output = "I haven't heard of that Pokemon before. Try again."
+    return build_response({}, build_speechlet_response)
+
+def handle_session_end_request():
+    card_title = "Session Ended"
+    speech_output = "Thank you for trying the Pokemon Info skill. " \
+                    "Have a nice day! "
+    # Setting this to true ends the session and exits the skill.
+    should_end_session = True
+    return build_response({}, build_speechlet_response(
+        card_title, speech_output, None, should_end_session))
+
+def get_pokemon_name(intent, session):
+    session_attributes = {}
+
+    reprompt_text = None
+
+    #TODO: Get the pokemon's name
+
+    return build_response(session_attributes, build_speechlet_response(
+        intent['name'], speech_output, reprompt_text, should_end_session))
+
+
+
+# --------------- Events ------------------
+
+
+def on_launch(launch_request, session):
+    """
+    Called when the user launches the skill without specifying what they
+    want
+    """
+    print("on_launch requestId=" + launch_request['requestId'] +
+          ", sessionId=" + session['sessionId'])
+    # Dispatch to your skill's launch
+    return get_welcome_response()
+
+
+def on_intent(intent_request, session):
+    """
+    Called when the user specifies an intent for this skill
+    """
+
+    print("on_intent requestId=" + intent_request['requestId'] +
+          ", sessionId=" + session['sessionId'])
+
+    intent = intent_request['intent']
+    intent_name = intent_request['intent']['name']
+
+    # TODO: Dispatch to your skill's intent handlers
+    if intent_name == "":
+        return get_pokemon_name(intent, session)
+    elif intent_name == "AMAZON.FallbackIntent":
+        return get_fallback_response()
+    elif intent_name == "AMAZON.HelpIntent":
+        return get_welcome_response()
+    elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
+        return handle_session_end_request()
+    else:
+        raise ValueError("Invalid intent")
+
+
+# --------------- Main handler ------------------
+
+def lambda_handler(event, context):
+    """
+    Route the incoming request based on type (LaunchRequest, IntentRequest,
+    etc.) The JSON body of the request is provided in the event parameter.
+    """
+    print("event.session.application.applicationId=" +
+          event['session']['application']['applicationId'])
+
+    """
+    Uncomment this if statement and populate with your skill's application ID to
+    prevent someone else from configuring a skill that sends requests to this
+    function.
+    """
+    # if (event['session']['application']['applicationId'] !=
+    #         "amzn1.echo-sdk-ams.app.[unique-value-here]"):
+    #     raise ValueError("Invalid Application ID")
+
+    if event['request']['type'] == "LaunchRequest":
+        return on_launch(event['request'], event['session'])
+    elif event['request']['type'] == "IntentRequest":
+        return on_intent(event['request'], event['session'])
+
+
+# --------------- Read Pokemon Data ----------------------
+
+POKEMON_DICT = {}
+POKEMON_PARSED = False
+
+def parse_pokemon():
+    """
+    Parse pokemon information from the S3 store
+    """
+    with urllib.request.urlopen(POKEDEX_LOC) as pokedex:
+        for pokemon in pokedex.readlines():
+            index, name = pokemon.decode('utf-8')[:-1].split(',')
+            POKEMON_DICT[index] = name
+
+    POKEMON_PARSED = True
+
+def get_pokemon(index):
+    """
+    Given a pokemon index, return the pokemon name.
+    """
+    if not POKEMON_PARSED:
+        parse_pokemon()
+
+    return POKEMON_DICT[str(index)]</pre>
+
+<button class="btn btn-secondary right" type="button" onclick="selectText()">Select All</button>
+</div>
+
+<script>
+function selectText() {
+    window.getSelection().removeAllRanges();
+    if (document.selection) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(document.getElementsByClassName('code'));
+        range.select();
+    } else if (window.getSelection) {
+        var range = document.createRange();
+        range.selectNode(document.getElementById('code'));
+        window.getSelection().addRange(range);
+    }
+}
+</script>
+
+</body>
+
+</html>

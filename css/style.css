@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Glegoo|Lato');
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-size: 16px;
+	background-color: #f3f3f3;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+.navbar-brand {
+	font-family: 'Anonymous Pro', monospace !important;
+	font-size: 40px;
+	color: #ffffff;
+}
+.navbar-brand:hover {
+	color: #ffffff;
+}
+#navbar a {
+	color: #ffffff;
+	text-decoration: none;
+}
+#navbar a:hover {
+	color: #008296;
+}
+
+.banner {
+	width: 100%;
+	padding: 100px 40px;
+}
+.banner.top {
+	margin-top: 51px;
+}
+.banner > .title {
+	color: #ffffff;
+	font-family: 'Anonymous Pro', monospace;
+	font-size: 70px;
+	text-align: center;
+}
+.banner > .subtitle {
+	text-align: center;
+	font-size: 25px;
+	letter-spacing: 8px;
+	text-transform: lowercase;
+	color: #ffffff;
+	opacity: 0.6;
+}
+.banner > .btn {
+	align-self: center;
+}
+.bannerLink:hover {
+	text-decoration: none;
+}
+.header {
+	/*background-color: #a6e7ce;*/
+	background-color: #ffa723;
+	padding: 100px 40px 130px 40px;
+	font-size: 40px;
+	color: #ffffff;
+}
+.alexa-banner {
+	background-color: #0070BA;
+}
+.android-banner {
+	background-color: #ade422;
+}
+
+.description {
+	text-align: center;
+	font-size: 20px;
+	color: #ffffff;
+	padding-bottom: 30px;
+}
+.description > p {
+	opacity: 0.8;
+}
+
+.btn-primary {
+	background-color: #f2f2f2;
+	color: #0070BA;
+}
+.btn-primary:hover {
+	background-color: #36c2b4;
+	color: #ffffff;
+}
+
+.floating-container {
+	background-color: #ffffff;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding: 20px 30px 30px 30px;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16), 0 0 0 0 rgba(0, 0, 0, 0.08);
+  	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.blockquote {
+	background-color: #ffffff;
+	margin: 10px 20px 15px 20px;
+	padding: 15px;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16), 0 0 0 0 rgba(0, 0, 0, 0.08);
+}
+.blockquote > p {
+	margin: 0;
+	font-size: 16px;
+}
+
+h1 {
+	text-transform: lowercase;
+	font-weight: 700;
+	font-size: 48px;
+	letter-spacing: 5px;
+	color: #0070ba;
+}
+.emphasis {
+	font-size: 17px;
+	font-weight: 700;
+}
+.setup-list > li {
+	margin-bottom: 5px;
+}
+
+h2 {
+	text-transform: lowercase;
+	letter-spacing: 3px;
+	color: #36c2b4;
+}
+b {
+	color: #36c2b4;
+	letter-spacing: 0.5;
+}
+
+.todo {
+	color: #ff0000;
+}
+
+pre, code {
+	font-family: 'Anonymous Pro', monospace !important;
+	background-color: white;
+}
+pre#code {
+	height: 500px !important;
+	overflow: scroll;
+}
+.code {
+	background-color: white;
+	font-family: 'Anonymous Pro', monospace !important;
+	padding: 2px;
+	letter-spacing: 0.75px;
+}
+
+.left {
+	float: left;
+	display: inline-block;
+}
+.right {
+	float: right;
+	display: inline-block;
+}
+
+.btn-secondary {
+  color: white;
+  background-color: #0070ba;
+  border: 1px solid #0070ba;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+  padding: 8px 20px;
+}
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary.focus,
+.btn-secondary:active,
+.btn-secondary.active,
+.open > .dropdown-toggle.btn-secondary {
+  color: #0070ba;
+  background-color: white;
+  border-color: #0070ba;
+  border: 1px solid #0070ba;
+}
+.btn-secondary:active,
+.btn-secondary.active,
+.open > .dropdown-toggle.btn-secondary {
+  background-image: none;
+}
+.btn-secondary.disabled,
+.btn-secondary[disabled],
+fieldset[disabled] .btn-secondary,
+.btn-secondary.disabled:hover,
+.btn-secondary[disabled]:hover,
+fieldset[disabled] .btn-secondary:hover,
+.btn-secondary.disabled:focus,
+.btn-secondary[disabled]:focus,
+fieldset[disabled] .btn-secondary:focus,
+.btn-secondary.disabled.focus,
+.btn-secondary[disabled].focus,
+fieldset[disabled] .btn-secondary.focus,
+.btn-secondary.disabled:active,
+.btn-secondary[disabled]:active,
+fieldset[disabled] .btn-secondary:active,
+.btn-secondary.disabled.active,
+.btn-secondary[disabled].active,
+fieldset[disabled] .btn-secondary.active {
+  background-color: #008296;
+  border-color: #008296;
+}
+.btn-secondary .badge {
+  color: #008296;
+  background-color: white;
+}
+.btn-container {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.congrats {
+	text-align: center;
+}
+.congrats > img {
+	width: 75%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+
+.contact-iframe {
+	overflow: hidden;
+	height: 100%;
+	
+  	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+@media (min-width: 1200px) {
+	.contact-iframe {
+	    width: 1170px;
+	}
+}
+@media (min-width: 992px) {
+	.contact-iframe {
+	    width: 970px;
+	}
+}
+@media (min-width: 768px) {
+	.contact-iframe {
+	    width: 750px;
+	}
+}

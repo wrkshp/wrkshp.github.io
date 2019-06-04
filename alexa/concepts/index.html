@@ -1,0 +1,115 @@
+<html lang="en">
+
+<head>
+    <title>WRKSHP
+         | Concepts
+    </title>
+    <!-- CSS and JS -->
+    <link  rel="stylesheet" href="/css/bootstrap.css" /><link  rel="stylesheet" href="/css/theme.css" /><link  rel="stylesheet" href="/css/style.css" />
+        <script defer="defer"  src="/js/jquery.js"></script><script defer="defer"  src="/js/bootstrap.js"></script><script defer="defer"  src="/js/scripts.js"></script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">WRKSHP</a>
+            </div>
+
+            <!-- Nav links -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+
+
+                
+                <li class="dropdown ">
+                  <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Alexa
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <li>
+                      <a href="/alexa">Get Started</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step1">Step 1: A New Skill</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step2">Step 2: Interaction Model</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step3">Step 3: Skill Configuration</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step4">Step 4: Coding Your Skill: The Intent</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step5">Step 5: Coding Your Skill: Pokemon Name</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step6">Step 6: Coding Your Skill: The Help Intent</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step7">Step 7: Configuring Lambda</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step8">Step 8: Testing and Debugging</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step9">Step 9: Next Steps</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="">
+                  <a href="/alexa/code">Code</a>
+                </li>
+                <li class="selected">
+                  <a href="/alexa/concepts">Concepts</a>
+                </li>
+                <li class="">
+                  <a href="/alexa/resources">Resources</a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container" style="margin-top: 71px;">
+	<h1>Concepts</h1>
+
+	<div class="floating-container">
+		<a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/alexa-skills-kit-interaction-model-reference"><h2>Utterances, Intents, and Slots</h2></a>
+		<ul>
+			<li><span class="emphasis">Utterances</span> are how the user would speak to Alexa. It's a list of things that the developer would define that would encompass all the phrases that someone can use to trigger your app.</li>
+			<li><span class="emphasis">Intents</span> are how Alexa handles the requests that the user makes to Alexa. There are 3 required intents that Alexa forces you to have: AMAZON.StopIntent, AMAZON.HelpIntent, and AMAZON.CancelIntent. These are fairly self explanatory.</li>
+			<li><span class="emphasis">Slots</span> are basically the variables that you'd want your user to fill in when making an utterance.</li>
+		</ul>
+	</div>
+
+	<div class="floating-container">
+		<h2>Architecture of an Alexa Skill</h2>
+		<p>Here's a simple sequence diagram of what happens when a user asks Alexa something.</p>
+		<img src="/static/architecture.png" style="width:100%;">
+	</div>
+
+	<div class="floating-container">
+		<a href="https://aws.amazon.com/lambda/"><h2>AWS Lambda</h2></a>
+		<p>Lambda is a really useful tool that Amazon Web Services has built to allow you to run a service without provisioning your own servers. In an Alexa Skills context, it's what the Alexa service calls when a user calls your skill. This is where the code for your skill lives.</p>
+	</div>
+</div>
+
+</body>
+
+</html>

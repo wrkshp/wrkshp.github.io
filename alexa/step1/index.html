@@ -1,0 +1,128 @@
+<html lang="en">
+
+<head>
+    <title>WRKSHP
+         | Step 1
+    </title>
+    <!-- CSS and JS -->
+    <link  rel="stylesheet" href="/css/bootstrap.css" /><link  rel="stylesheet" href="/css/theme.css" /><link  rel="stylesheet" href="/css/style.css" />
+        <script defer="defer"  src="/js/jquery.js"></script><script defer="defer"  src="/js/bootstrap.js"></script><script defer="defer"  src="/js/scripts.js"></script>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">WRKSHP</a>
+            </div>
+
+            <!-- Nav links -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+
+
+                
+                <li class="dropdown ">
+                  <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Alexa
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <li>
+                      <a href="/alexa">Get Started</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step1">Step 1: A New Skill</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step2">Step 2: Interaction Model</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step3">Step 3: Skill Configuration</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step4">Step 4: Coding Your Skill: The Intent</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step5">Step 5: Coding Your Skill: Pokemon Name</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step6">Step 6: Coding Your Skill: The Help Intent</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step7">Step 7: Configuring Lambda</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step8">Step 8: Testing and Debugging</a>
+                    </li>
+                    <li>
+                      <a href="/alexa/step9">Step 9: Next Steps</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="">
+                  <a href="/alexa/code">Code</a>
+                </li>
+                <li class="">
+                  <a href="/alexa/concepts">Concepts</a>
+                </li>
+                <li class="">
+                  <a href="/alexa/resources">Resources</a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="/contact.html">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container" style="margin-top: 71px;">
+	<h1>A New Skill</h1>
+
+	<div class="floating-container">
+		<h2>Setup</h2>
+		<p>Make sure you've made all the accounts necessary. If you haven't, <a href="https://wrkshp.github.io/alexa/#setup">go back to the Setup section</a> and follow all of the steps.</p>
+	</div>
+
+	<h2>Adding a New Skill</h2>
+
+	<p>Navigate to <a href="https://developer.amazon.com/">developer.amazon.com</a> and sign into your account. Hover over the <b>Alexa</b> tab and select the <b>Alexa Skills Kit</b>. Click <b>Create Skill</b> on the right.</p>
+
+	<p>Now we need to fill in a few fields to identify our skill.</p>
+	<ul>
+		<li><span class="emphasis">Skill Name</span> is the name shown in the skills store. It can be anything you want.</li>
+		<li><span class="emphasis">Skill Model</span> is the basic model that contains intents and utterances that you use in your skill. There's a few predefined ones, but we will choose <b>Custom</b>, which allows us to define our own model. Hit <b>Create Skill</b> at the top to continue.</li>
+		<li><span class="emphasis">Backend Resource</span> is how you'll be providing the backend for your skill. We'll be <b>Provisioning our own</b> backend resources.</li>
+		<li><span class="emphasis">Template</span> are types of custom skills that you can choose from. While these look fun, we'll just be using the <b>Start from Scratch</b> template. Click <b>Choose</b> at the top right to continue.</li>
+	</ul>
+
+	<p>You'll be taken to the Skills Developer landing page for your skill. We'll go through the Skill Builder Checklist now. You can also see this checklist in the left menu.</p>
+
+	<p>We'll do the easiest step first: the <b>Invocation Name</b>. This is what name we use when we talk to Alexa. For example, if our invocation name is "echomon", we would say, "Ask echomon to ____". It automatically fills this item in using your Skill Name, but you can choose whatever you like.</p>
+
+	<div class="blockquote">
+		Some requirements on the Invocation Name: it can only contain lower case letters, spaces, apostrophes, and periods.
+	</div>
+	
+	<p>Hit <b>Save Model</b> at the top, then select <b>Intents</b> in the left menu. Or, from the Skills Builder Checklist on the Landing Page, click on the <b>Intents, Samples, and Slots</b> item in the checklist to take you straight to the intent creation page.</p>
+</div>
+
+<div class="container btn-container">
+	<div class="right">
+		<a href="/alexa/step2" class="btn btn-secondary">Next →</a>
+	</div>
+</div>
+
+</body>
+
+</html>
